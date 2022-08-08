@@ -1,0 +1,24 @@
+{
+  "name": "meanauthapp",
+  "version": "1.0.0",
+  "description": "MEAN stack authentication app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "author": "Sirpa Karhu",
+  "license": "ISC"
+}
