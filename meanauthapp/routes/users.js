@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const User = require('../models/user');
 
-//Register
+// Register
 router.post('/register', (req, res, next) => {
     let newUser = new User({
         name: req.body.name,
@@ -23,7 +23,7 @@ router.post('/register', (req, res, next) => {
     })
 });
 
-//Authenticate
+// Authenticate
 router.post('/authenticate', (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -33,13 +33,14 @@ router.post('/authenticate', (req, res, next) => {
         if(!user) {
             return res.json({success: false, msg: "User not found"});
         }
+
         User.comparePassword(password, user.password, (err, isMatch) => {
             if(err) throw err;
             if(isMatch) {
                 const token = jwt.sign({ data: user }, config.secret, {
                     expiresIn: 604800
                 });
-                // const token = jwt.sign(user, config.secret, {
+                // const token = jwt.sign(user.toJSON(), config.secret, {
                 //     expiresIn: 604800 // 1 week
                 // });
 
